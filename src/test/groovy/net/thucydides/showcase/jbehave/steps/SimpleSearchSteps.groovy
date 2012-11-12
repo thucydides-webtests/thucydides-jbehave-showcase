@@ -6,6 +6,7 @@ import org.jbehave.core.annotations.When
 
 import static net.thucydides.showcase.jbehave.model.matchers.ProductMatchers.withTitle
 import org.jbehave.core.annotations.Given
+import org.jbehave.core.annotations.Alias
 
 class SimpleSearchSteps extends BigCommerceJBehaveSteps{
     @Steps
@@ -22,6 +23,7 @@ class SimpleSearchSteps extends BigCommerceJBehaveSteps{
     }
 
     @Then('I should see a product with the title <expectedTitle>')
+    @Alias('I should see a product with the title $expectedTitle')
     public void thenIShouldSeeAProductWithTheTitle(String expectedTitle) {
         customer.should_see_product withTitle(expectedTitle)
     }

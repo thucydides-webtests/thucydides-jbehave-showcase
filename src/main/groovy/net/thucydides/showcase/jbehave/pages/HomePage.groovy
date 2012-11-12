@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import net.thucydides.showcase.jbehave.model.Product
 import net.thucydides.showcase.jbehave.model.matchers.ProductMatcher
+import net.thucydides.showcase.jbehave.model.FilterBy
 
 /**
  * The 3wks home page.
@@ -44,7 +45,7 @@ class HomePage extends BigCommercePage {
 	@FindBy(id = "search_query_adv")
 	WebElement advancedSearchBox
 	
-	@FindBy(css = ".Submit>input")
+	@FindBy(linkText="Advanced Search")
 	WebElement advancedSearchButton	
 	
 	@FindBy(css = ".BlockContent>h2")
@@ -120,12 +121,11 @@ class HomePage extends BigCommercePage {
     }
 
 	def searchFor(String product) {
-        element(searchBox).type(product)
-		element(searchButton).click()
+        $(searchBox).type(product)
+		$(searchButton).click()
 	}
 	
     def selectProduct(title) {
-        println "Select product $title"
         findBy(".ProductList").then(By.linkText(title)).click()
     }
 
@@ -134,6 +134,10 @@ class HomePage extends BigCommercePage {
     }
 
     def viewCart() {
-        element(viewCart).click()
+        $(viewCart).click()
+    }
+
+    def openAdvancedSearch() {
+        $(advancedSearchButton).click()
     }
 }

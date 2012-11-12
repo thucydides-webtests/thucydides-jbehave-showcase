@@ -6,16 +6,19 @@ import net.thucydides.core.pages.Pages
 import net.thucydides.showcase.jbehave.pages.ProductDetailsPage
 import net.thucydides.showcase.jbehave.pages.CartConfirmationPage
 import net.thucydides.showcase.jbehave.model.matchers.ProductMatcher
+import net.thucydides.showcase.jbehave.model.FilterBy
+import net.thucydides.showcase.jbehave.pages.AdvancedSearchPage
 
 class CustomerSteps extends BigCommerceSteps {
     ProductDetailsPage productDetailsPage
     CartConfirmationPage cartConfirmationPage
-
+    AdvancedSearchPage advancedSearchPage
 
     CustomerSteps(Pages pages) {
         super(pages)
         productDetailsPage = pages[ProductDetailsPage]
         cartConfirmationPage = pages[CartConfirmationPage]
+        advancedSearchPage = pages[AdvancedSearchPage]
     }
 
 
@@ -74,7 +77,13 @@ class CustomerSteps extends BigCommerceSteps {
 		homePage.searchFor(keywords)
 	}
 
-	@Step
+    @Step
+    def searches_for_product(FilterBy... criteria) {
+        homePage.openAdvancedSearch()
+        advancedSearchPage.searchFor(criteria)
+    }
+
+    @Step
 	def opens_advanced_search_form() {
 		homePage.advancedSearchLink.click()
 	}
