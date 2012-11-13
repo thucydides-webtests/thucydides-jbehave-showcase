@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.9.72-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.9.74</thucydides.version>
         <thucydides.jbehave.version>0.9.72-SNAPSHOT</thucydides.jbehave.version>
         <webdriver.driver>firefox</webdriver.driver>
         <thucydides.project.key>BIGCOMMERCE</thucydides.project.key>

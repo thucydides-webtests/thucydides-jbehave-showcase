@@ -1,0 +1,3 @@
+In order to sell products online
+As an online retailer
+I need customers to be able to order the products they want
